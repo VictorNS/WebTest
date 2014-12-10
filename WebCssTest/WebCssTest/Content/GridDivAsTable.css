@@ -1,0 +1,8 @@
+﻿.table {
+	border:1px #ccc solid;
+	display:table-cell;
+}
+.table .tr, .table .td { position: relative;}
+
+.vmiddle {vertical-align:middle;}
+.vbottom {vertical-align:bottom;}

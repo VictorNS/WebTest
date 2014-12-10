@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+		http://www.maxdesign.com.au/articles/vertical-align/
+		http://css-tricks.com/almanac/properties/v/vertical-align/
+	</title>
+	<style>
+		.block {
+			display: block;
+		}
+		.table {
+			border: 1px black solid;
+			background-color: rgb(105, 196, 141);
+			color: rgb(255, 255, 255);
+			display: table;
+			float: left;
+			height: 70px;
+			font-size: 36px;
+			vertical-align: middle;
+			text-align: center;
+		}
+		.table .tr, .table .td {
+			border: 1px red solid;
+			height: 70px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+		.img {
+			vertical-align: middle;
+			width: 32px;height: 32px;
+		}
+		.span {
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="block">
+		<div class="table">
+			<div class="tr">
+				<div class="td">
+					<img class="img" src="Content/44.png">
+				</div>
+			</div>
+			<div class="tr">
+				<div class="td">
+					<img class="img" src="Content/44.png">
+					<span class="span">Xx</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block">
+		<div class="table">
+			<div class="tr">
+				<div class="td">
+					<img class="img" src="Content/44.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
