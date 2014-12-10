@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var callback = (function () {
+			var i = 0;
+			return function (a) {
+				i++;
+				return a + i;
+			};
+		})(0);
+		var str = 'Jack Jack Jack'.replace(/Jack/g, callback);
+		console.log(str); // Jack1 Jack2 Jack3
+	</script>
+<pre>
+var callback = (function () {
+	var i = 0;
+	return function (a) {
+		i++;
+		return a + i;
+	};
+})(0);
+var str = 'Jack Jack Jack'.replace(/Jack/g, callback);
+console.log(str); // Jack1 Jack2 Jack3
+</pre>
+
+	<script type="text/javascript">
+		function add(a) {
+			var f = function (b) {
+				return a + b;
+			};
+			return f;
+		}
+		console.log(add(5)(7)); // 12
+	</script>
+<pre>
+function add(a) {
+	var f = function (b) {
+		return a + b;
+	};
+	return f;
+}
+console.log(add(5)(7)); // 12
+</pre>
+
+</body>
+</html>
