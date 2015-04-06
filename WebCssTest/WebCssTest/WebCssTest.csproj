@@ -62,7 +62,6 @@
     <Content Include="Content\44.png" />
     <Content Include="Content\GridComplex.css" />
     <Content Include="Content\GridDivAsTable.css" />
-    <Content Include="Content\GridSimplest.css" />
     <Content Include="GridComplex.html" />
     <Content Include="GridDivAsTable.html" />
     <Content Include="GridSimplest.html" />
