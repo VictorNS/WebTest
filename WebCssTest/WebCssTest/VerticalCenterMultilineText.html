@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Vertical center alignment multiline text</title>
+	<style>
+		body {
+			font-family: Verdana;
+			font-size: 16px; /* @font-small */
+			line-height: 1.3em; /* жёстко задаем высоту строки 1.3 - нам будет нужна эта констатнта */
+			/* шрифт размер и высота строки задаются у родителя - иначе (ниже) максимальная высота строки не сработает */
+		}
+
+		.grid-container {
+			width: 400px; /*чтобы было видно перенс текста*/
+		}
+
+			.grid-container div.fixed-row {
+				padding-top: 0; padding-bottom: 0; /* паддинги нам точно ни к чему */
+				height: 80px; /* высоту задаём жестко, но чтобы вошло 2 строки (то, что высота строки фиксированная задано в условиях задачи) */
+				border-bottom: 1px solid Black;
+			}
+
+				.grid-container div.fixed-row span {
+					max-height: 41.6px; /* максимум 2 строки = @font-small * 1.3 * 2 ; что такое @font-small см. выше */
+					display: block; /* если использовать inline-block, то влияет фонт и выравнивание "плывёт" */
+					overflow: hidden; /* запрещаем скроллы */
+					white-space: normal; /* разрешаем перенос по пробелам */
+					border: 1px solid Lavender; /* просто чтобы было видно, что выравнено */
+				}
+
+		.table {
+			width: 100%;
+			height: 100%;
+			display: table;
+		}
+
+			.table .table-cell {
+				display: table-cell;
+				vertical-align: middle; /* единственный вариант выравнять блок - таблица */
+			}
+	</style>
+</head>
+
+<body>
+	<div class="grid-container">
+		<div class="fixed-row">
+			<div class="table">
+				<div class="table-cell">
+					<span>Короткий текст</span>
+				</div>
+			</div>
+		</div>
+		<div class="fixed-row">
+			<div class="table">
+				<div class="table-cell">
+					<span>Длинный текст. Длинный текст. Длинный текст. Длинный текст. Длинный текст. Длинный текст.</span>
+				</div>
+			</div>
+		</div>
+		<div class="fixed-row">
+			<div class="table">
+				<div class="table-cell">
+					<span>Короткий текст</span>
+				</div>
+			</div>
+		</div>
+		<div class="fixed-row">
+			<div class="table">
+				<div class="table-cell">
+					<span>Длинный текст. Длинный текст. Длинный текст. Длинный текст. Длинный текст. Длинный текст.</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
