@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="CenterImageAndText.html" />
     <Content Include="CenterTextboxAndLabel.html" />
+    <Content Include="CentredDialog.html" />
     <Content Include="Content\44.png" />
     <Content Include="Content\GridComplex.css" />
     <Content Include="Content\GridDivAsTable.css" />
