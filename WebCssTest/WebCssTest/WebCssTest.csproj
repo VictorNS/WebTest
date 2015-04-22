@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="CenterImageAndText.html" />
     <Content Include="CenterTextboxAndLabel.html" />
+    <Content Include="CentredDialog.html" />
     <Content Include="Content\44.png" />
     <Content Include="Content\GridComplex.css" />
     <Content Include="Content\GridDivAsTable.css" />
