@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Horizontal Right Multiline Text</title>
+	<style>
+		* {
+			line-height: 1.3em;
+		}
+
+		body {
+			font-family: Tahoma, Arial;
+		}
+
+		.text-right {
+			text-align: right;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+
+		.navbar-top {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 80px;
+			background-color: #61bce1;
+			color: #ffffff;
+		}
+
+		.brand {
+			display: block;
+			line-height: 80px;
+			float: left;
+			margin-left: 20px;
+			margin-right: 20px;
+			font-size: 20px;
+		}
+
+		.navbar-item {
+			height: 80px;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+
+		.navbar-central {
+			width: auto;
+			overflow: hidden;
+		}
+
+		.navbar-info {
+			max-width: 100%;
+			display: inline-block;
+			margin-top: 20px;
+			font-size: 14px;
+		}
+
+			.navbar-info * {
+				text-overflow: ellipsis; /* https://css-tricks.com/almanac/properties/t/text-overflow/ */
+				/* Required for text-overflow to do anything */
+				overflow: hidden;
+				white-space: nowrap;
+			}
+	</style>
+</head>
+<body>
+
+	<div class="navbar-top">
+		<div class="brand">
+			BRANDNAME
+		</div>
+		<div class="navbar-item navbar-central text-right">
+			<div class="navbar-info text-left">
+				<div>
+					First line
+				</div>
+				<div>
+					Second line is longer than first
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
