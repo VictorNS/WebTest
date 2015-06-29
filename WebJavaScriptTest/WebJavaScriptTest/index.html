@@ -4,7 +4,7 @@
 	<title></title>
 </head>
 <body>
-	
+
 	<script type="text/javascript">
 		var callback = (function () {
 			var i = 0;
@@ -45,6 +45,31 @@ function add(a) {
 	return f;
 }
 console.log(add(5)(7)); // 12
+</pre>
+
+<script type="text/javascript">
+	(function test() {
+		bar(); // "this will run!" 
+		foo(); // TypeError "foo is not a function" 
+		function bar() { // объявление функции с именем 'bar' 
+			console.log("this will run!");
+		}
+		var foo = function () { // функциональное выражение, присвоенное локальной переменной 'foo' 
+			console.log("this won't run!");
+		}
+	})();
+</script>
+<pre>
+(function test() {
+	bar(); // "this will run!" 
+	foo(); // TypeError "foo is not a function" 
+	function bar() { // объявление функции с именем 'bar' 
+		console.log("this will run!");
+	}
+	var foo = function () { // функциональное выражение, присвоенное локальной переменной 'foo' 
+		console.log("this won't run!");
+	}
+})();
 </pre>
 
 </body>

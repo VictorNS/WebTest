@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Kinetic ScrollBar</title>
+	<style>
+		#track {
+			width: 500px;
+			position: relative;
+			display: block;
+			height: 22px;
+			margin: 20px;
+			border: solid 1px #000;
+			overflow: hidden;
+		}
+
+			#track #thumb {
+				width: 70px;
+				height: 22px;
+				position: absolute;
+				background-color: gray;
+				left: 200px;
+			}
+	</style>
+	<script src="Scripts/jquery-2.1.4.js"></script>
+	<script src="Scripts/jquery-ui-1.11.4.js"></script>
+</head>
+<body>
+	<a href="http://habrahabr.ru/post/136374/">http://habrahabr.ru/post/136374/</a>
+	<div id="track">
+		<div id="thumb"></div>
+	</div>
+</body>
+<script>
+	$(function () {
+		var $track = $('#track');
+		var $thumb = $('#thumb');
+
+		var isClicked = false;
+		var clickPointX = 0;
+		var dx = 0;
+
+		// Изменяя значения этих параметров, scroll bar можно настроить под конкретные нужды:
+		var maxBorderOut = 10; // максимальное количество пикселей, на которое можно утащить ползунок за границы области
+		var lapse = 2; // определяет некоторую погрешность. То есть, если dx меньше чем эта погрешность, то анимация не происходит. Величина подбиралась на глаз, и может быть выбрана не совсем удачно
+		var impulse = 8; // величина некоторого импульса воздействующего на ползунок, и определяющего расстояние необходимое для перемещения. По сути, коэффициент умножающийся на dx. Подбирался так же на глаз
+		var speed = 800; // скорость анимации
+
+		//запретим некоторым рыжим браузерам пытаться перетаскивать наш ползунок
+		$thumb.bind('dragstart', false);
+
+		$thumb.mousedown(function (e) {
+			// Координаты клика на объекте
+			clickPointX = e.pageX - $(this).offset().left;
+			isClicked = true;
+
+			$thumb.stop(); // Останавливаем анимацию ползунка
+		});
+
+		$(document).mousemove(function (e) {
+			if (isClicked) {
+				// Новое положение ползунка, в зависимости от текущих
+				// координат мыши
+				var x = (e.pageX - $track.offset().left - clickPointX);
+
+				// Входит ли ползунок в границы области
+				if (x < -maxBorderOut) {
+					x = -maxBorderOut;
+				}
+				if ((x + $thumb.width()) > ($track.width() + maxBorderOut)) {
+					x = $track.width() - $thumb.width() + maxBorderOut;
+				}
+
+				// Текущее положение
+				var selfLeft = parseInt($thumb.css('left'));
+
+				$thumb.css({ 'left': x + 'px' });
+
+				dx = x - selfLeft;
+			}
+		});
+
+		$(document).mouseup(function () {
+			if (isClicked) {
+
+				if (Math.abs(dx) < lapse) {
+					dx = 0;
+				}
+
+				var selfLeft = parseInt($thumb.css('left'));
+
+				// Новое положение ползунка
+				// "impulse * dx" как раз та величина, на которую необходимо доскроллить
+				var x = (selfLeft + impulse * dx);
+
+				// Проверка, не выходит ли ползунок за границы области scroll box'a
+				if (x < 0) {
+					x = 0;
+				}
+				if ((x + $thumb.width()) > $track.width()) {
+					x = $track.width() - $thumb.width();
+				}
+
+				// Сама анимация перемещения
+				$thumb.stop().animate({ 'left': x + 'px' }, speed, 'easeOutCirc');
+			}
+			isClicked = false;
+
+		});
+	});
+</script>
+</html>
