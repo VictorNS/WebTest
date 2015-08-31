@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Inheritance CSS</title>
+	<style>
+		/* Incorrect: */
+		.active1 { color: black;}
+		.child1 { color: red;}
+		.parent1 { text-decoration: underline;}
+
+		/* Fix 1: */
+		li.active2 { color: black;} /* tag has greater priority */
+		.child2 { color: red;}
+		.parent2 { text-decoration: underline;}
+
+		/* Fix 2: */
+		.child3.active3 { color: black;} /* when both styles for an element */
+		.child3 { color: red;}
+		.parent3 { text-decoration: underline;}
+	</style>
+</head>
+<body>
+	<p>Incorrect:</p>
+	<ul class="parent1">
+		<li class="child1">First row</li>
+		<li class="child1 active1">Second row</li>
+		<li class="child1">Third row</li>
+	</ul>
+
+	<p>Fix 1:</p>
+	<ul class="parent2">
+		<li class="child2">First row</li>
+		<li class="child2 active2">Second row</li>
+		<li class="child2">Third row</li>
+	</ul>
+
+	<p>Fix 2:</p>
+	<ul class="parent3">
+		<li class="child3">First row</li>
+		<li class="child3 active3">Second row</li>
+		<li class="child3">Third row</li>
+	</ul>
+
+	<pre>
+		* { } /* 0 баллов */
+		em { } /* 1 балл */
+		p::first-letter { } /* 2 балла (один селектор тегов и один псевдоэлемент) */
+		p [title="Приветствие"] { } /* 11 баллов (по одному селектору тегов и атрибутов) */
+		div.fine .one { } /* 21 балл (два класса и один селектор тегов) */
+		#header a:hover { } /* 111 баллов (идентификатор, селектор тегов и псевдокласс) */
+	</pre>
+
+</body>
+</html>

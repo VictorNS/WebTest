@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+<script>
+	function compare(order, left, right) {
+		return order * (left - right);
+	}
+
+	var ascCompare = compare.bind(undefined, 1, left, right);
+	var descCompare = compare.bind(undefined, -1, left, right);
+	console.log(ascCompare(10, 0));
+	console.log(descCompare(10, 0));
+</script>
+</body>
+</html>
