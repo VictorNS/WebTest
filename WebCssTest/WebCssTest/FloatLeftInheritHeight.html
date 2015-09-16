@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Float left inherit height from parent</title>
+	<style>
+		.container {
+			width: 500px;
+			background-color: yellow;
+			height: 150px;
+		}
+
+		.float1 {
+			width: 20%;
+			float: left;
+			background-color: lightskyblue;
+			overflow: hidden;
+			max-height: 100%;
+		}
+
+		.float2 {
+			width: 20%;
+			float: left;
+			background-color: lightskyblue;
+			overflow: hidden;
+			height: inherit;
+		}
+
+		.fill {
+			min-height: 100%;
+			overflow: hidden;
+			background-color: pink;
+		}
+
+		.clearfloat {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="float1">
+			The floating <br />column
+			<br /> 1
+			<br /> 2
+			<br /> 3
+			<br /> hidden
+		</div>
+
+		<div class="fill">
+			This one fill the rest
+		</div>
+
+		<div class="clearfloat"></div>
+	</div>
+
+	<hr />
+
+	<div class="container">
+		<div class="float2">
+			The floating <br />column
+			<br /> 1
+			<br /> 2
+			<br /> 3
+			<br /> hidden
+		</div>
+
+		<div class="fill">
+			This one fill the rest
+		</div>
+
+		<div class="clearfloat"></div>
+	</div>
+
+</body>
+</html>
