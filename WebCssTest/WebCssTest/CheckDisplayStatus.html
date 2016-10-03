@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<style>
+		div {
+			border: 1px solid silver;
+			margin-bottom: 2px;
+		}
+		.clickable {
+			cursor: pointer;
+		}
+		.hidden {
+			display: none;
+		}
+		.hidden:parent {
+			color: red;
+		}
+		.displayRelated:has(.hidden) {
+			color: red;
+		}
+	</style>
+	<script>
+		function onSpanClick() {
+			var el = document.getElementById("id1");
+			if (el.className == "hidden")
+				el.className = "";
+			else
+				el.className = "hidden";
+		}
+	</script>
+</head>
+<body>
+	<div onclick="onSpanClick()" class="clickable">Click me!</div>
+	<div class="displayRelated">
+		<div id="id1" class="hiddable">I'm visible.</div>
+		<span>There's a child DIV.</span>
+	</div>
+</body>
+</html>
